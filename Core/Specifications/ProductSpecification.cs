@@ -13,7 +13,7 @@ public class ProductSpecification : BaseSpecification<Product>
 
         switch (specParams.Sort)
         {
-            case "pricAasc":
+            case "priceAsc":
                 AddOrderBy(p => p.Price);
                 break;
 
