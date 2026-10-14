@@ -1,8 +1,9 @@
+@if(products){
 <div class="flex flex-col gap-3">
-    <div class="flex justify-between">
+    <div class="flex justify-between mb-5">
         <mat-paginator 
         (page)="handlePageEvent($event)"
-        [length]="products?.count"
+        [length]="products.count"
         [pageSize]="shopParams.pageSize"
         [showFirstLastButtons]="true"
         [pageSizeOptions]="pageSizeOptions"
@@ -36,8 +37,8 @@
     </button>
     </div>
     </div>
-<div class="grid grid-cols-5 gap-4">
-@for (product of products?.data; track product.id) {
+<div class="grid grid-cols-5 gap-4 mb-3">
+@for (product of products.data; track product.id) {
 <app-product-item [product]="product">
 
 </app-product-item>
@@ -55,3 +56,5 @@
         }
     </mat-selection-list>
 </mat-menu>
+}
+

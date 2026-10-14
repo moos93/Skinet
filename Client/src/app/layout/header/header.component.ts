@@ -2,15 +2,22 @@ import { Component } from '@angular/core';
 import { MatBadge } from '@angular/material/badge';
 import { MatButton } from '@angular/material/button';
 import{MatIcon} from '@angular/material/icon'
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
+  selector: 'app-header',
+  standalone:true,
   imports: [
     MatIcon,
     MatButton,
-    MatBadge
+    MatBadge,
+    RouterLink,
+    RouterLinkActive
   ],
-  selector: 'app-header',
+  templateUrl: './header.component.html', 
   styleUrl: './header.component.scss',
-  templateUrl: './header.component.html',
+  
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  
+}
