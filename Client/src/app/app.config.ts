@@ -3,15 +3,20 @@ import { provideRouter } from '@angular/router';
 import 'zone.js';
 
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { errorInterceptor } from './core/interceptor/error-interceptor';
+import { loadingInterceptor } from './core/interceptor/loading-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideZoneChangeDetection(),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([
+      errorInterceptor,
+      loadingInterceptor
+    ])),
     {
       provide: MAT_DIALOG_DEFAULT_OPTIONS,
       useValue: { autoFocus:'dialog', restoreFocus: true}
